@@ -2614,79 +2614,79 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>Christian Kral</p></td>
 </tr>
 </table>
-<p><br><br><br><br><br><br>The following <b><span style=\"color: #0000ff;\">new libraries</span></b> have been added: </p>
+<p><br><br><br><br><br><br><br>The following <b><span style=\"color: #0000ff;\">new libraries</span></b> have been added: </p>
 <p><br>The following <b><span style=\"color: #0000ff;\">new components</span></b> have been added to <b><span style=\"color: #0000ff;\">existing</span></b> libraries: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td colspan=\"2\"><h4>Modelica.Blocks.Math</h4></td>
 </tr>
 <tr>
 <td><p>Exponentiation</p></td>
-<td></td>
+<td><p>--add content here--</p></td>
 </tr>
 <tr>
 <td><p>ContinuousSignalExtrema</p></td>
-<td></td>
+<td><p>This block detects positive and negative peaks of differentiable and non-differentiable input signals without sampling.</p></td>
 </tr>
 <tr>
-<td colspan=\"2\"><p><h4>Modelica.Electrical.Analog.Sources</h4></p></td>
+<td colspan=\"2\"><h4>Modelica.Electrical.Analog.Sources</h4></td>
 </tr>
 <tr>
 <td><p>LightningImpulse</p></td>
-<td></td>
+<td><p>Block that provides the simplified trajectory of an impulse (like the current of lightnings) as one of two approximation functions.</p></td>
 </tr>
 <tr>
 <td><p>LightningImpulseCurrent</p></td>
-<td></td>
+<td><p>Lightning impulse current using either a double exponential function or a Heidler function</p></td>
 </tr>
 <tr>
 <td><p>LightningImpulseVoltage</p></td>
-<td></td>
+<td><p>Lightning impulse voltage using either a double exponential function or a Heidler function</p></td>
 </tr>
 <tr>
-<td colspan=\"2\"><p><h4>Modelica.Electrical.PowerConverters.DCDC</h4></p></td>
+<td colspan=\"2\"><h4>Modelica.Electrical.PowerConverters.DCDC</h4></td>
 </tr>
 <tr>
 <td><p>ChopperBuckBost</p></td>
-<td></td>
+<td><p>This is a bidirectional buck / boost - converter with 2 transistors and 2 freewheeling diodes.</p></td>
 </tr>
 <tr>
-<td colspan=\"2\"><p><h4>Modelica.Electrical.QuasiStatic.SinglePhase.Basic</h4></p></td>
+<td colspan=\"2\"><h4>Modelica.Electrical.QuasiStatic.SinglePhase.Basic</h4></td>
 </tr>
 <tr>
 <td><p>Transformer</p></td>
-<td></td>
+<td><p>Models a quasistatic singlephase transformer using a two-port matrix.</p></td>
 </tr>
 <tr>
-<td colspan=\"2\"><p><h4>Modelica.Electrical.QuasiStatic.SinglePhase.Sensors</h4></p></td>
+<td colspan=\"2\"><h4>Modelica.Electrical.QuasiStatic.SinglePhase.Sensors</h4></td>
 </tr>
 <tr>
 <td><p>CurrentRMSSensor</p></td>
-<td></td>
+<td><p>This sensor determines the continuous root mean square (RMS) value of a single-phase current system.</p></td>
 </tr>
 <tr>
 <td><p>VoltageRMSSensor</p></td>
-<td></td>
+<td><p>This sensor determines the continuous root mean square (RMS) value of a single-phase voltage system.</p></td>
 </tr>
 <tr>
-<td colspan=\"2\"><p><h4>Modelica.Mechanics.Rotational.Components</h4></p></td>
+<td colspan=\"2\"><h4>Modelica.Mechanics.Rotational.Components</h4></td>
 </tr>
 <tr>
 <td><p>Coupling</p></td>
-<td></td>
+<td><p>This is a model of an ideal stiff coupling (face to face)</p></td>
 </tr>
 <tr>
-<td colspan=\"2\"><p><h4>Modelica.Mechanics.Rotational.Sources</h4></p></td>
+<td colspan=\"2\"><h4>Modelica.Mechanics.Rotational.Sources</h4></td>
 </tr>
 <tr>
 <td><p>InverseSpeedDependentTorque</p></td>
-<td></td>
+<td><p>Model of inverse speed dependent torque.</p></td>
 </tr>
 <tr>
-<td colspan=\"2\"><p><h4>Modelica.Mechanics.Translational.Sources</h4></p></td>
+<td colspan=\"2\"><h4>Modelica.Mechanics.Translational.Sources</h4></td>
 </tr>
 <tr>
 <td><p>InverseSpeedDependentForce</p></td>
-<td></td>
+<td><p>Model of inverse speed dependent force.</p></td>
 </tr>
 </table>
 <p><br><br><br><br><br><br><br><br>The following <b><span style=\"color: #0000ff;\">existing components</span></b> have been <b><span style=\"color: #0000ff;\">improved</span></b> in a <b><span style=\"color: #0000ff;\">backward compatible</span></b> way: </p>
@@ -2734,7 +2734,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>The table interpolation in <span style=\"font-family: Courier New;\">f_pos</span> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</p></td>
 </tr>
 </table>
-<p><br><br><br><br><br>The following <b><span style=\"color: #0000ff;\">existing components</span></b> have been <b><span style=\"color: #0000ff;\">changed</span></b> in a <b><span style=\"color: #0000ff;\">non-backward compatible</span></b> way: </p>
+<p><br><br><br><br><br><br>The following <b><span style=\"color: #0000ff;\">existing components</span></b> have been <b><span style=\"color: #0000ff;\">changed</span></b> in a <b><span style=\"color: #0000ff;\">non-backward compatible</span></b> way: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td colspan=\"2\"><h4>Mechanics.MultiBody</h4></td>
 </tr>
@@ -2797,7 +2797,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>internal used ports of the optional mechanical housing port and the optional thermal port is made protected</p></td>
 </tr>
 </table>
-<p><br><br><br><br><br>The following <b><span style=\"color: #ff0000;\">critical errors</span></b> have been fixed (i.e., errors that can lead to wrong simulation results): </p>
+<p><br><br><br>The following <b><span style=\"color: #ff0000;\">critical errors</span></b> have been fixed (i.e., errors that can lead to wrong simulation results): </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td colspan=\"2\"><h4>Modelica.Blocks.Tables</h4></td>
 </tr>
@@ -2824,7 +2824,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 </tr>
 <tr>
 <td><p>PulseSeries</p></td>
-<td><p>Add content here</p></td>
+<td><p>Clarified usage of pause between pulses and between pulse series</p></td>
 </tr>
 <tr>
 <td colspan=\"2\"><h4>Modelica.Electrical.Polyphase.Basic</h4></td>
@@ -2838,7 +2838,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 </tr>
 <tr>
 <td><p>HollowCylinderAxialFlux</p><p>HollowCylinderRadialFlux</p></td>
-<td><p>Add content Here</p></td>
+<td><p>Usage of parameter alpha (central angle) instead of pi without any choice</p><p>Usage of parameter alpha (central angle) instead of pi without any choice</p></td>
 </tr>
 <tr>
 <td colspan=\"2\"><h4>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.</h4></td>
@@ -2873,7 +2873,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 </tr>
 <tr>
 <td><p>regFun3</p></td>
-<td><p>add data here</p></td>
+<td><p>----add content here---</p></td>
 </tr>
 <tr>
 <td colspan=\"2\"><h4>Modelica.Media.Air.MoistAir.Utilities</h4></td>
