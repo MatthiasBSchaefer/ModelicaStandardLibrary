@@ -2614,14 +2614,14 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>Christian Kral</p></td>
 </tr>
 </table>
-<p><br><br><br><br><br><br><br>The following <b><span style=\"color: #0000ff;\">new libraries</span></b> have been added: </p>
+<p><br><br><br><br><br><br><br><br>The following <b><span style=\"color: #0000ff;\">new libraries</span></b> have been added: </p>
 <p><br>The following <b><span style=\"color: #0000ff;\">new components</span></b> have been added to <b><span style=\"color: #0000ff;\">existing</span></b> libraries: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td colspan=\"2\"><h4>Modelica.Blocks.Math</h4></td>
 </tr>
 <tr>
 <td><p>Exponentiation</p></td>
-<td><p>--add content here--</p></td>
+<td><p>Performs general exponentiation</p></td>
 </tr>
 <tr>
 <td><p>ContinuousSignalExtrema</p></td>
@@ -2689,7 +2689,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>Model of inverse speed dependent force.</p></td>
 </tr>
 </table>
-<p><br><br><br><br><br><br><br><br>The following <b><span style=\"color: #0000ff;\">existing components</span></b> have been <b><span style=\"color: #0000ff;\">improved</span></b> in a <b><span style=\"color: #0000ff;\">backward compatible</span></b> way: </p>
+<p><br><br><br><br><br><br><br><br><br>The following <b><span style=\"color: #0000ff;\">existing components</span></b> have been <b><span style=\"color: #0000ff;\">improved</span></b> in a <b><span style=\"color: #0000ff;\">backward compatible</span></b> way: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td colspan=\"2\"><h4>Modelica.Blocks.Sources</h4></td>
 </tr>
@@ -2734,7 +2734,7 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 <td><p>The table interpolation in <span style=\"font-family: Courier New;\">f_pos</span> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</p></td>
 </tr>
 </table>
-<p><br><br><br><br><br><br>The following <b><span style=\"color: #0000ff;\">existing components</span></b> have been <b><span style=\"color: #0000ff;\">changed</span></b> in a <b><span style=\"color: #0000ff;\">non-backward compatible</span></b> way: </p>
+<p><br><br><br><br><br><br><br>The following <b><span style=\"color: #0000ff;\">existing components</span></b> have been <b><span style=\"color: #0000ff;\">changed</span></b> in a <b><span style=\"color: #0000ff;\">non-backward compatible</span></b> way: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td colspan=\"2\"><h4>Mechanics.MultiBody</h4></td>
 </tr>
@@ -2769,35 +2769,35 @@ class Version_4_1_0 "Version 4.1.0 (Month D, 20YY)"
 </tr>
 <tr>
 <td><p>Math.ContinuousMean</p></td>
-<td><p>simplifie the mean formula</p></td>
+<td><p>simplified the mean formula</p></td>
 </tr>
 <tr>
 <td><p>Sources.ContinuousClock</p></td>
-<td><p>-----------add content here---------</p></td>
+<td><p>Updated to declare that the output is smooth</p></td>
 </tr>
 <tr>
 <td colspan=\"2\"><h4>Modelica.Electrical.PowerConverters.DCAC.Control</h4></td>
 </tr>
 <tr>
 <td><p>SVPWM</p></td>
-<td><p>corrected a bug in the equation </p></td>
+<td><p>Corrected a bug in the equation </p></td>
 </tr>
 <tr>
 <td colspan=\"2\"><h4>Modelica.Magnetic.FundamentalWave.BaseClasses</h4></td>
 </tr>
 <tr>
 <td><p>Machine</p></td>
-<td><p>internal used ports of the optional mechanical housing port and the optional thermal port is made protected </p></td>
+<td><p>Internal used ports of the optional mechanical housing port and the optional thermal port is made protected </p></td>
 </tr>
 <tr>
 <td colspan=\"2\"><h4>Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses</h4></td>
 </tr>
 <tr>
 <td><p>Machine</p></td>
-<td><p>internal used ports of the optional mechanical housing port and the optional thermal port is made protected</p></td>
+<td><p>Internal used ports of the optional mechanical housing port and the optional thermal port is made protected</p></td>
 </tr>
 </table>
-<p><br><br><br>The following <b><span style=\"color: #ff0000;\">critical errors</span></b> have been fixed (i.e., errors that can lead to wrong simulation results): </p>
+<p><br><br><br><br>The following <b><span style=\"color: #ff0000;\">critical errors</span></b> have been fixed (i.e., errors that can lead to wrong simulation results): </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td colspan=\"2\"><h4>Modelica.Blocks.Tables</h4></td>
 </tr>
