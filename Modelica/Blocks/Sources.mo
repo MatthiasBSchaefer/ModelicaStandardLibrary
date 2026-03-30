@@ -290,7 +290,7 @@ If parameter duration is set to 0.0, the limiting case of a Step signal is achie
 
   block Sine "Generate sine signal"
     import Modelica.Constants.pi;
-    parameter Real amplitude=1 "Amplitude of sine wave"
+    parameter Real amplitude = 1 "Amplitude of sine wave"
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Sine.png"));
     parameter SI.Frequency f(start=1) "Frequency of sine wave";
     parameter SI.Angle phase=0 "Phase of sine wave";
