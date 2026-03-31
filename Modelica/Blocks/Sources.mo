@@ -1600,7 +1600,7 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
       annotation (Dialog(group="Table data definition",enable=tableOnFile));
     parameter String fileName = "NoName" "File where matrix is stored"
       annotation (Dialog(
-        group="Table data definition",
+        group = "Table data definition",
         enable=tableOnFile,
         loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat);;Comma-separated values files (*.csv)",
             caption="Open file in which table is present")));
