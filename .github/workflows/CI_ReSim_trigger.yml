@@ -1,4 +1,4 @@
-name: CI ReSim Trigger
+name: Trigger CI ReSim
 
 on:
   pull_request:
