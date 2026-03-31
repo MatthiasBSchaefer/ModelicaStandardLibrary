@@ -1614,7 +1614,7 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
     parameter Boolean verboseRead = true
       "= true, if info message that file is loading is to be printed"
       annotation (Dialog(group="Table data definition",enable=tableOnFile));
-    parameter Integer columns[:]=2:size(table, 2)
+    parameter Integer columns[:] = 2:size(table, 2)
       "Columns of table to be interpolated"
       annotation (Dialog(group="Table data interpretation",
       groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/CombiTimeTable.png"));
