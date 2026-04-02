@@ -1600,7 +1600,7 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
       annotation (Dialog(group="Table data definition",enable=tableOnFile));
     parameter String fileName = "NoName" "File where matrix is stored"
       annotation (Dialog(
-        group="Table data definition",
+        group = "Table data definition",
         enable=tableOnFile,
         loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat);;Comma-separated values files (*.csv)",
             caption="Open file in which table is present")));
@@ -1611,13 +1611,13 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
         choices(choice=" " "Blank", choice="," "Comma", choice="\t" "Horizontal tabulator", choice=";" "Semicolon"));
     parameter Integer nHeaderLines=0 "Number of header lines to ignore for CSV file"
       annotation (Dialog(group="Table data definition",enable=tableOnFile and isCsvExt));
-    parameter Boolean verboseRead=true
+    parameter Boolean verboseRead = true
       "= true, if info message that file is loading is to be printed"
       annotation (Dialog(group="Table data definition",enable=tableOnFile));
-    parameter Integer columns[:]=2:size(table, 2)
+    parameter Integer columns[:] = 2:size(table, 2)
       "Columns of table to be interpolated"
       annotation (Dialog(group="Table data interpretation",
-      groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/CombiTimeTable.png"));
+      groupImage = "modelica://Modelica/Resources/Images/Blocks/Sources/CombiTimeTable.png"));
     parameter Modelica.Blocks.Types.Smoothness smoothness = Modelica.Blocks.Types.Smoothness.LinearSegments
       "Smoothness of table interpolation"
       annotation (Dialog(group="Table data interpretation"));
@@ -1629,7 +1629,7 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
       annotation (Dialog(group="Table data interpretation"), Evaluate=true);
     parameter Real offset[:]={0} "Offsets of output signals"
       annotation (Dialog(group="Table data interpretation"));
-    parameter SI.Time startTime=0
+    parameter SI.Time startTime = 0
       "Output = offset for time < startTime"
       annotation (Dialog(group="Table data interpretation"));
     parameter SI.Time shiftTime=startTime
@@ -1691,7 +1691,7 @@ than the shifted minimum abscissa value defined in the table.
       assert(noEvent(time <= t_max + shiftTime), "
 Extrapolation warning: Time must be less or equal
 than the shifted maximum abscissa value defined in the table.
-", level=AssertionLevel.warning);
+", level = AssertionLevel.warning);
     end if;
 
     timeScaled = time/timeScale;
