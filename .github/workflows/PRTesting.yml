@@ -1,11 +1,9 @@
 name: CI ReSim
 
 on:
-  workflow_run:
-    workflows: ["Trigger CI ReSim"]
-    types:
-      - completed
-
+  pull_request_target:
+  workflow_dispatch:
+  
 env:
     PR_SERVER: ${{ vars.LTX_PR_SERVER }}
     TESTING_TOOLS: ${{ vars.LTX_TESTING_TOOLS }}
