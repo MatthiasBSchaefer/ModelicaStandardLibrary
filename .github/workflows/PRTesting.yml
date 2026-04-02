@@ -1,124 +1,47 @@
 name: CI ReSim
 
 on:
-  workflow_run:
-    workflows: ["Trigger CI ReSim"]
-    types:
-      - completed
+  pull_request_target:
+  workflow_dispatch:
+  
+env:
+    PR_SERVER: ${{ vars.LTX_PR_SERVER }}
+    TESTING_TOOLS: ${{ vars.LTX_TESTING_TOOLS }}
+    EVENT_NUMBER: ${{ github.event.workflow_run.env.EVENT_NUMBER }}
+    PR_SHA: ${{ github.event.workflow_run.env.PR_SHA }}
 
 jobs:
-  resim_checks:
-    runs-on: ubuntu-latest
+  prepare:
+    runs-on: [ self-hosted, Linux, regression_testing ]      
+    steps: 
+      - uses: actions/checkout@v6
+        with: 
+            sparse-checkout: './.CI/ReSim'
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v6
-        with:
-          ref: ${{ github.event.workflow_run.head_sha }}
-
-      - name: Get PR number
-        uses: 8BitJonny/gh-get-current-pr@4.0.0
-        id: PR
-        with:
-          sha: ${{ github.event.workflow_run.head_sha }}
-          filterOutClosed: true
-          filterOutDraft: true
-
-      - name: Run ReSim
-        if: steps.PR.outputs.pr_found == 'true'
-        run: |
-          echo "LTX_PR_SERVER=${{ vars.LTX_PR_SERVER }}"
-          echo "LTX_SCRIPT_LOCATION=${{ vars.LTX_SCRIPT_LOCATION }}"
-          echo "LTX_TESTING_TOOLS=${{ vars.LTX_TESTING_TOOLS }}"
-
-      - name: Report status back to PR
-        if: steps.PR.outputs.pr_found == 'true'
-        uses: actions/github-script@v8
-        with:
-          script: |
-            const run = context.payload.workflow_run;
-            const sha = run.head_sha;
-            const conclusion = run.conclusion;
-            let state;
-            switch (conclusion) {
-              case "success":
-                state = "success";
-                break;
-              case "failure":
-              case "timed_out":
-              case "action_required":
-                state = "failure";
-                break;
-              case "cancelled":
-              case "skipped":
-                state = "error";
-                break;
-              default:
-                state = "error";
-            }
-            const prNumber = process.env.PR_NUMBER || null;
-            const ltxServer = process.env.LTX_PR_SERVER;
-            const targetUrl = prNumber ? `${ltxServer}/${prNumber}/` : ltxServer;
-            await github.rest.repos.createCommitStatus({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              sha: sha,
-              state: state,
-              context: "CI / resim_checks",
-              description: `ReSim finished with ${conclusion}`,
-              target_url: targetUrl
-            });
+      - name: Checkout code in docker
+        run: ./.CI/ReSim/prepare_pr.sh ${{ env.EVENT_NUMBER }}
+    
+  testrun_modelica:
+    needs: prepare
+    runs-on: [ self-hosted, Linux, regression_testing ]
+    environment: 
+        name: Report modelica
+        url: ${{ env.PR_SERVER }}/${{ env.EVENT_NUMBER }}/Modelica/report/PR_comparison_report.html
+    steps:         
+      - name: print envs
+        run: echo "TESTING_TOOLS=$TESTING_TOOLS"
         env:
-          PR_NUMBER: ${{ steps.PR.outputs.number }}
-          LTX_PR_SERVER: ${{ vars.LTX_PR_SERVER }}
+            TESTING_TOOLS: ${{ vars.LTX_TESTING_TOOLS }}
+      - name: Run tests modelica      
+        run: ./.CI/ReSim/run_pr.sh ${{ env.EVENT_NUMBER }} ${{ env.PR_SHA }} Modelica ${{ env.TESTING_TOOLS }}
 
-
-#name: CI ReSim
-#
-#on:
-#  workflow_run:
-#    workflows: ["Trigger CI ReSim"]
-#    types:
-#      - completed
-#
-#env:
-#    PR_SERVER: ${{ vars.LTX_PR_SERVER }}
-#    TESTING_TOOLS: ${{ vars.LTX_TESTING_TOOLS }}
-#    EVENT_NUMBER: ${{ github.event.workflow_run.env.EVENT_NUMBER }}
-#    PR_SHA: ${{ github.event.workflow_run.env.PR_SHA }}
-#
-#jobs:
-#  prepare:
-#    runs-on: [ self-hosted, Linux, regression_testing ]      
-#    steps: 
-#      - uses: actions/checkout@v6
-#        with: 
-#            sparse-checkout: './.CI/ReSim'
-#
-#      - name: Checkout code in docker
-#        run: ./.CI/ReSim/prepare_pr.sh ${{ env.EVENT_NUMBER }}
-#    
-#  testrun_modelica:
-#    needs: prepare
-#    runs-on: [ self-hosted, Linux, regression_testing ]
-#    environment: 
-#        name: Report modelica
-#        url: ${{ env.PR_SERVER }}/${{ env.EVENT_NUMBER }}/Modelica/report/PR_comparison_report.html
-#    steps:         
-#      - name: print envs
-#        run: echo "TESTING_TOOLS=$TESTING_TOOLS"
-#        env:
-#            TESTING_TOOLS: ${{ vars.LTX_TESTING_TOOLS }}
-#      - name: Run tests modelica      
-#        run: ./.CI/ReSim/run_pr.sh ${{ env.EVENT_NUMBER }} ${{ env.PR_SHA }} Modelica ${{ env.TESTING_TOOLS }}
-#
-#            
-#  testrun_modelicatest:
-#    needs: prepare
-#    runs-on: [ self-hosted, Linux, regression_testing ]
-#    environment: 
-#        name: Report modelicatest
-#        url: ${{ env.PR_SERVER }}/${{ env.EVENT_NUMBER }}/ModelicaTest/report/PR_comparison_report.html
-#    steps:    
-#      - name: Run tests modelicatest      
-#        run:  ./.CI/ReSim/run_pr.sh ${{ env.EVENT_NUMBER }} ${{ env.PR_SHA }} ModelicaTest ${{ env.TESTING_TOOLS }}
+            
+  testrun_modelicatest:
+    needs: prepare
+    runs-on: [ self-hosted, Linux, regression_testing ]
+    environment: 
+        name: Report modelicatest
+        url: ${{ env.PR_SERVER }}/${{ env.EVENT_NUMBER }}/ModelicaTest/report/PR_comparison_report.html
+    steps:    
+      - name: Run tests modelicatest      
+        run:  ./.CI/ReSim/run_pr.sh ${{ env.EVENT_NUMBER }} ${{ env.PR_SHA }} ModelicaTest ${{ env.TESTING_TOOLS }}
