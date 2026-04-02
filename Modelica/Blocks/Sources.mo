@@ -1691,7 +1691,7 @@ than the shifted minimum abscissa value defined in the table.
       assert(noEvent(time <= t_max + shiftTime), "
 Extrapolation warning: Time must be less or equal
 than the shifted maximum abscissa value defined in the table.
-", level=AssertionLevel.warning);
+", level = AssertionLevel.warning);
     end if;
 
     timeScaled = time/timeScale;
