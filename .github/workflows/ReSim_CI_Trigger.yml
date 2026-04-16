@@ -3,6 +3,10 @@ name: Trigger CI ReSim
 on:
   pull_request:
 
+env:
+    EVENT_NUMBER:  ${{ github.event.number }}
+    PR_SHA: ${{ github.event.pull_request.base.sha }}
+    
 jobs:
   trigger_resim_checks:
     runs-on: ubuntu-latest
