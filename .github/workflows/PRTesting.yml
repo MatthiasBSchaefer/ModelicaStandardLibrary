@@ -1,8 +1,10 @@
 name: CI ReSim
 
 on:
-  pull_request_target:
-  workflow_dispatch:
+  workflow_run:
+    workflows: ["Trigger CI ReSim"]
+    types:
+      - completed
   
 env:
     PR_SERVER: ${{ vars.LTX_PR_SERVER }}
@@ -10,7 +12,7 @@ env:
     #EVENT_NUMBER:  ${{ github.event.number }}
     #PR_SHA: ${{ github.event.pull_request.base.sha }}
     EVENT_NUMBER: ${{ github.event.workflow_run.env.EVENT_NUMBER }}
-    PR_SHA: ${{ github.event.workflow_run.env.PR_SHA }}
+    PR_SHA: ${{ github.event.workflow_run.head_sha }}
 
 jobs:
   prepare:
