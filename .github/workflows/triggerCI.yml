@@ -10,7 +10,7 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v7
+      - uses: actions/github-script@v9
         with:
           github-token: ${{ secrets.LTX_SIMULATION_TOKEN }}
           script: |
@@ -23,5 +23,6 @@ jobs:
                 number: context.payload.number,
                 head_sha: pr.head?.sha ?? null,
                 base_sha: pr.base?.sha ?? null,
+                github_repo: context.repo.full_name 
               }
             });
