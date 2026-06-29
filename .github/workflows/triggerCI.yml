@@ -5,7 +5,15 @@ on: pull_request_target
 permissions:
   contents: read
   actions: write
-
+  
+env:
+    EVENT_NUMBER:  ${{ github.event.client_payload.number }}
+    BASE_SHA: ${{ github.event.client_payload.base_sha }}
+    PR_SHA: ${{ github.event.client_payload.head_sha }}
+    REPO_NAME: ${{ github.event.client_payload.github_repo }}
+    #WORKSPACE: ${{ github.workspace }}
+    PR_SERVER: 
+    # WORKSPACE: $GITHUB_WORKSPACE
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -16,8 +24,8 @@ jobs:
           script: |
             const pr = context.payload.pull_request || {};
             await github.rest.repos.createDispatchEvent({
-              owner: 'ltx-simulation',
-              repo: 'ModelicaStandardLibrary',
+              owner: '${{ secrets.PRIVATE_CI_OWNER }}',
+              repo: '${{ secrets.PRIVATE_CI_REPO }}',
               event_type: 'CI_trigger_type',
               client_payload: {
                 number: context.payload.number,
