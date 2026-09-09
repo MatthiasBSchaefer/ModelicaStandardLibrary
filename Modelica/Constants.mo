@@ -1,6 +1,6 @@
 within Modelica;
 package Constants
-  "Library of mathematical constants and constants of nature (e.g., pi, eps, R, sigma)"
+  "Library of mathematical constants and constants of nature (e.g., pi, eps, R, sigma) Test"
 
   extends Modelica.Icons.Package;
   import Modelica.Units.SI;
