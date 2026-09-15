@@ -45,7 +45,7 @@ equation
         Line(points={{70,0},{90,0}}, color={0,0,255}),
         Text(
           extent={{-150,-40},{150,-80}},
-          textString="R=%R"),
+          textString="R = %R"),
         Line(
           visible=useHeatPort,
           points={{0,-100},{0,-30}},
